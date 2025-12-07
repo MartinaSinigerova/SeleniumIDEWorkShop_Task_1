@@ -28,3 +28,9 @@ jobs:
 
       - name: Run test
         run: dotnet test --verbosity normal
+
+      - name: Install Chrome
+        run: sudo apt-get update && sudo apt-get install -y google-chrome-stable
+
+      - name: Install ChromeDriver
+        uses: nanasess/setup-chromedriver@v1
