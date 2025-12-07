@@ -1,22 +1,26 @@
-name: Selenium ide CI
+name: Selenium IDE CI
 
 on:
   push:
-      branches:
-              - main
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
 jobs:
   build:
-    runs-on: ubuntu-lates
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up .Net COre
+      - name: Set up .Net Core
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '8.0.x'
 
-      - name: Install dependecies
+      - name: Install dependencies
         run: dotnet restore
 
       - name: Build
