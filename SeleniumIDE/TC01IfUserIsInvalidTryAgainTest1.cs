@@ -22,13 +22,13 @@ public class TC01IfUserIsInvalidTryAgainTest
     public void SetUp()
     {
         ChromeOptions options = new ChromeOptions();
-        options.AddArguments("headless");
-        options.AddArguments("no-sandbox");
-        options.AddArguments("disable-dev-shm-usage");
-        options.AddArguments("disable-gpu");
-        
+        options.AddArgument("headless");
+        options.AddArgument("no-sandbox");
+        options.AddArgument("disable-dev-shm-usage");
+        options.AddArgument("disable-gpu");
 
-        driver = new ChromeDriver();
+
+        driver = new ChromeDriver(options);
         js = (IJavaScriptExecutor)driver;
         vars = new Dictionary<string, object>();
     }

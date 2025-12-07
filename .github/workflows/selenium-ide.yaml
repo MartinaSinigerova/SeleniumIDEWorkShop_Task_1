@@ -20,6 +20,12 @@ jobs:
         with:
           dotnet-version: '8.0.x'
 
+      - name: Install Chrome
+        run: sudo apt-get update && sudo apt-get install -y google-chrome-stable
+
+      - name: Install ChromeDriver
+        uses: nanasess/setup-chromedriver@v1
+
       - name: Install dependencies
         run: dotnet restore
 
@@ -29,8 +35,4 @@ jobs:
       - name: Run test
         run: dotnet test --verbosity normal
 
-      - name: Install Chrome
-        run: sudo apt-get update && sudo apt-get install -y google-chrome-stable
-
-      - name: Install ChromeDriver
-        uses: nanasess/setup-chromedriver@v1
+      
